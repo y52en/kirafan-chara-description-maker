@@ -338,7 +338,19 @@
    >
         回復</span>`;
 
-    html += "</form><br>";
+        html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="buff"
+   onchange="radio_onclick_atk(this)"
+   >
+        バフ</span>`;
+
+        html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="debuff"
+   onchange="radio_onclick_atk(this)"
+   >
+        デバフ</span>`;
+
+    html += "</form><br><br>";
     return html;
   })();
 
