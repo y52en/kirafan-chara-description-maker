@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <link rel="stylesheet" media="all" href="./css/application.css" />
+    <link rel="stylesheet" media="all" href="./css/news_detail.css" />
+    <script src="./js/application.js"></script>
+    <script src="./js/news_detail.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js"></script> -->
+  </head>
+
+  <body class="news-template-default single single-news">
+    <input type="file" id="hidden_file_elm" style="display: none" />
+
+    <!-- <button onclick="html2Img()">画像化</button> -->
+    <br />
+    <br />
+
+    <div id="darklayer"></div>
+    <div id="set_val" class="set_val">
+      メッセージは　でないはずだよ<br />でたら　おしえてね
+    </div>
+
+    <div id="balloon_edit" style="display: none">
+      ふき出し: <br />
+      <textarea
+        cols="27"
+        rows="8"
+        oninput='(e => {
+               const value = e.value.replaceAll("\n","<br>");
+       const target_elm = document.querySelector("#balloon>p");
+       
+       target_elm.innerHTML = value;
+      })(this)'
+      ></textarea>
+    </div>
+
+    <div id="ttk_edit" style="display: none">
+      スキル名: <br />
+      <input
+        type="text"
+        size="50"
+        oninput="(e => {
+        const value = e.value;
+
+        // console.log(closePopup);
+
+        const target_elm = document.querySelector(`#${now_selecting_skill}>dl>dt`);
+        target_elm.innerHTML = value;
+        
+        })(this)"
+      />
+
+      <br />
+      スキル説明: <br />
+      <textarea
+        cols="27"
+        rows="8"
+        oninput='(e => {
+               const value = e.value.replaceAll("\n","<br>");
+               const target_elm = document.querySelector("#ttk>dl>dd");
+       
+               target_elm.innerHTML = value;
+      })(this)'
+      ></textarea>
+    </div>
+    <div id="skill_edit" style="display: none">
+      スキル名:　<br />
+      <input
+        type="text"
+        size="50"
+        oninput="(e => {
+        const value = e.value;
+
+        // console.log(closePopup);
+
+        const target_elm = document.querySelector(`#${now_selecting_skill}>dl>dt`);
+        target_elm.innerHTML = value;
+        
+        })(this)"
+      />
+
+      <br />
+      スキル説明: <br /><textarea
+        cols="27"
+        rows="8"
+        oninput='(e => {
+               const value = e.value.replaceAll("\n","<br>");
+               const target_elm = document.querySelector(`#${now_selecting_skill}>dl>dd`);
+       
+               target_elm.innerHTML = value;
+      })(this)'
+      ></textarea>
+    </div>
+
+    <!-- <span > -->
+
+    <div width="50%" class="continer" id="content">
+      <div class="newsDetail">
+        <div class="newsInner">
+          <div class="newsText">
+            <!-- <p id="margin20" style="font-size: 50px">
+              名前:<input type="text" size="30" />
+            </p>
+
+            <p id="margin20" style="font-size: 50px">
+              ふき出し:<textarea cols="40" rows="4"> </textarea>
+            </p>
+
+            <p
+              id="margin20"
+              style="font-size: 50px; position: fixed; z-index: 2"
+            >
+              HP,ATK,MAT,DEF,MDF,SPD:
+              <input type="text" size="55" placeholder="コンマ区切りで入力" />
+            </p>
+
+            <p id="margin20" style="font-size: 50px">
+              とっておき名:<textarea cols="40" rows="2"> </textarea>
+            </p>
+            <p id="margin20" style="font-size: 50px">
+              とっておき説明:<textarea cols="40" rows="4"> </textarea>
+            </p> -->
+
+            <h2>ピックアップ対象キャラクター紹介</h2>
+            <div class="balloon" id="balloon">
+              <img
+                src="./char/osirase_hukidasi_01-3c9d920e2928e247a9b6735c867b304982bc52e543da0033dfacc00ca28f5241.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_02-9a81ade284c01f371d123b79ceda83c15d53c588ca82526f73866ceacb88464e.png"
+              /><img
+                src="./char/osirase_hukidasi_03-5713d45d7a8b6b44c47ce489e0697a778a53f2acfcdb5c5d945e584c579f34a7.png"
+              />
+              <p>
+                どうもアウトドア料理研究家のなでしこです！<br />今回はチョコフォンデュに挑戦してるんだー。<br />どの果物とチョコが一番合うか実験してるけど、<br />みんなおいひくて、止まんないー。んむ、んむ。<br />
+              </p>
+            </div>
+            <div class="insert-page">
+              <div class="charArea">
+                <div class="charImg">
+                  <img src="./char/nadeshiko.png" class="char" id="chara_img" />
+                </div>
+                <div class="charInfo">
+                  <div id="chara_type" class="charType">
+                    <div class="charRarity rarity5"></div>
+                    <div class="charElement moon"></div>
+                    <div class="charClass alchemist"></div>
+                  </div>
+                  <div id="name" class="charName">
+                    <span class="charNameMain fontStand over12WordsName"
+                      >なでしこ【バレンタイン】</span
+                    ><span class="charNameSub fontStand"></span>
+                  </div>
+                  <div class="charParam">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="charParamType hp"></div>
+                          </td>
+                          <td>415</td>
+                          <td>
+                            <div class="charParamType str"></div>
+                          </td>
+                          <td>230</td>
+
+                          <td>
+                            <div class="charParamType mat"></div>
+                          </td>
+                          <td>250</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="charParamType def"></div>
+                          </td>
+                          <td>250</td>
+
+                          <td>
+                            <div class="charParamType mdf"></div>
+                          </td>
+                          <td>180</td>
+
+                          <td>
+                            <div class="charParamType spd"></div>
+                          </td>
+                          <td>101</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="charSkillSp">
+                    <p class="fontStand">とっておき</p>
+                  </div>
+                  <div id="ttk" class="charSkill">
+                    <div class="charSkillIcon">
+                      <img src="./char/ttk.png" class="skillIcon" />
+                    </div>
+                    <dl>
+                      <dt class="fontStand">
+                        バレンタインに突然のBUTAKUSHI！！
+                      </dt>
+                      <dd class="">
+                        「敵全体」に月属性の特大ダメージ +
+                        <br />「敵全体」の魔法攻撃を一定ターン小ダウン +
+                        <br />「敵全体」にはらぺこを付与
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="charSeparate"></div>
+                  <div id="skill1" class="charSkill">
+                    <div class="charSkillIcon">
+                      <img src="./char/mat_moon.png" class="skillIcon" />
+                    </div>
+                    <dl>
+                      <dt class="fontStand">材料はバッチリだよっ！！</dt>
+                      <dd class="">
+                        「敵単体」に月属性の中ダメージ +
+                        <br />「敵単体」の魔法防御を一定ターン大ダウン
+                      </dd>
+                    </dl>
+                  </div>
+                  <div id="skill2" class="charSkill">
+                    <div class="charSkillIcon">
+                      <img src="./char/mat_moon.png" class="skillIcon" />
+                    </div>
+                    <dl>
+                      <dt class="fontStand">
+                        プレゼントのかわりにおもてなしするってどうかな？
+                      </dt>
+                      <dd class="">
+                        「敵単体」に月属性の小ダメージ +
+                        <br />「敵単体」の行動速度を一定ターン小ダウン +
+                        <br />「味方全体」のクリティカル率が一定ターン小アップ
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </span> -->
+  </body>
+</html>
+
+<script>
+  let now_selecting_skill = "ttk";
+  let radio_onclick = (e) => console.log(e);
+  let radio_onclick_job = (e) => console.log(e);
+  let radio_onclick_rare = (e) => console.log(e);
+  const darklayer_elm = document.getElementById("darklayer");
+  const setVal_elm = document.getElementById("set_val");
+  const choseAbleIdList = [
+    "balloon",
+    "ttk",
+    "skill1",
+    "skill2",
+    "chara_img",
+    "chara_type",
+    "name",
+  ];
+  const pramList = ["hp", "str", "mat", "def", "mdf", "spd"];
+
+  const elm_list = ["fire", "water", "earth", "wind", "moon", "sun"];
+  const job_list = ["fighter", "magician", "priest", "knight", "alchemist"];
+  // const elm_list_jp = ["","water","earth","wind","moon","sun"]
+
+  const radioBtn_from_elm_list = (() => {
+    let html = "";
+    html += '<form class="charArea" id="elm_list_radio">';
+    elm_list.forEach((elm) => {
+      html += `<span class="charType"><input name="elm" style="width: 3.4em;
+   height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" value="${elm}"
+   onchange="radio_onclick(this)"
+   >
+        <div class="charElement ${elm}" style="margin-right:40px"></div></span>`;
+    });
+    html += "</form><br>";
+    return html;
+  })();
+
+  const radioBtn_from_job_list = (() => {
+    let html = "";
+    html += '<form class="charArea" id="elm_list_radio">';
+    job_list.forEach((elm) => {
+      html += `<span class="charType"><input name="elm" style="width: 3.4em;
+   height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" value="${elm}"
+   onchange="radio_onclick_job(this)"
+   >
+        <div class="charClass ${elm}" style="margin-right:40px"></div></span>`;
+    });
+    html += "</form><br><br>";
+    return html;
+  })();
+
+  const radioBtn_atk_or_mat = (() => {
+    let html = "";
+    html += '<form class="charArea" id="elm_atk_or_mat">';
+
+    html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="atk"
+   onchange="radio_onclick_atk(this)"
+   >
+        物理</span>`;
+    html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="mat"
+   onchange="radio_onclick_atk(this)"
+   >
+        魔法</span>`;
+    html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="heal"
+   onchange="radio_onclick_atk(this)"
+   >
+        回復</span>`;
+
+    html += "</form><br>";
+    return html;
+  })();
+
+  const radioBtn_3to5 = (() => {
+    let html = "";
+    html += '<form class="charArea" id="elm_atk_or_mat">';
+
+    html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="3"
+   onchange="radio_onclick_rare(this)"
+   >
+        3</span>`;
+    html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="4"
+   onchange="radio_onclick_rare(this)"
+   >
+        4</span>`;
+    html += `<span><input name="elm" style="width: 3.4em;height: 3.4em;margin:auto -1.2em auto 1.2em;" type="radio" 
+        value="5"
+   onchange="radio_onclick_rare(this)"
+   >
+        5</span>`;
+
+    html += "</form><br>";
+    return html;
+  })();
+
+  function edit(id) {
+    switch (id) {
+      case "balloon":
+        const tmp_elm = document.getElementById("balloon_edit");
+        setVal_elm.innerHTML = tmp_elm.innerHTML;
+
+        document.querySelector(
+          "#set_val>textarea"
+        ).innerHTML = document.querySelector("#balloon>p").innerText;
+
+        break;
+
+      case "name":
+        // document.querySelector("#name>.charaNameMain").innerHTML
+        setVal_elm.innerHTML = `
+              名前:
+              <input type="text"
+              size="30" 
+              oninput='(e => {
+                const value = e.value;
+                const target_elm = document.querySelector("#name>.charNameMain");
+                
+                target_elm.innerHTML = value;
+
+                target_elm.className = "charNameMain fontStand";
+                console.log(value.length);
+                if(value.length > 14){
+                  target_elm.className += " over14WordsName"
+                }else if(value.length >= 11){
+                  target_elm.className+= " over" + value.length +  "WordsName"
+                }
+                })(this)'
+                />
+              `;
+        document.querySelector("#set_val>input").value = document.querySelector(
+          "#name>.charNameMain"
+        ).innerText;
+        break;
+
+      case "ttk":
+        now_selecting_skill = id;
+        const tmp_elm_ttk = document.getElementById("ttk_edit");
+        // tmp_elm.childNodes[1].value =
+        //.value
+        //.replaceAll("<br>","\n",);
+        setVal_elm.innerHTML = tmp_elm_ttk.innerHTML;
+
+        document.querySelector("#set_val>input").value = document.querySelector(
+          "#ttk>dl>dt"
+        ).innerText;
+
+        document.querySelector(
+          "#set_val>textarea"
+        ).innerHTML = document.querySelector("#ttk>dl>dd").innerText;
+        break;
+      case "chara_img":
+        document.getElementById("hidden_file_elm").click();
+        break;
+      case "chara_type":
+        setVal_elm.innerHTML = "";
+        setVal_elm.insertAdjacentHTML("afterbegin", radioBtn_from_elm_list);
+        setVal_elm.insertAdjacentHTML("afterbegin", radioBtn_from_job_list);
+
+        setVal_elm.insertAdjacentHTML("afterbegin", radioBtn_3to5);
+
+        // radio_onclick_rare
+
+        //elm
+        const target_charaType = document.querySelector;
+        radio_onclick = (e) => {
+          document.querySelector(
+            "#chara_type>.charElement"
+          ).className = `charElement ${e.value}`;
+        };
+        radio_onclick_job = (e) => {
+          document.querySelector(
+            "#chara_type>.charClass"
+          ).className = `charClass ${e.value}`;
+        };
+        radio_onclick_rare = (e) => {
+          document.querySelector(
+            "#chara_type>.charRarity"
+          ).className = `charRarity rarity${e.value}`;
+        };
+        break;
+      case "skill1":
+      case "skill2":
+        now_selecting_skill = id;
+        // setVal_elm.innerHTML = ``;
+        const tmp_elm_skill = document.getElementById("skill_edit");
+
+        setVal_elm.innerHTML = tmp_elm_skill.innerHTML;
+
+        const target_elm_skill = document.getElementById(id);
+
+        setVal_elm.insertAdjacentHTML("afterbegin", radioBtn_from_elm_list);
+        setVal_elm.insertAdjacentHTML("afterbegin", radioBtn_atk_or_mat);
+
+        // console.log(elm_list_radio);
+        radio_onclick = (e) => {
+          const target = document.querySelector("#" + id + ">div>img");
+          target.src = target.src.replace(/_[^.]*\./, "_" + e.value + ".");
+        };
+
+        radio_onclick_atk = (e) => {
+          const target = document.querySelector("#" + id + ">div>img");
+          target.src = target.src.replace(/r\/[^_]+_/, "r/" + e.value + "_");
+        };
+
+        document.querySelector("#set_val>input").value = document.querySelector(
+          `#${id}>dl>dt`
+        ).innerText;
+
+        document.querySelector(
+          "#set_val>textarea"
+        ).innerHTML = document.querySelector(`#${id}>dl>dd`).innerText;
+
+        break;
+    }
+    if (id !== "chara_img") {
+      showPopUp();
+    }
+  }
+
+  const pram_elm_list = document.querySelectorAll(".charParamType");
+
+  pram_elm_list.forEach((elm, index) => {
+    elm.onclick = () => editPram(pramList[index]);
+    elm.parentElement.nextElementSibling.onclick = () =>
+      editPram(pramList[index]);
+  });
+
+  choseAbleIdList.forEach((id) => {
+    document.getElementById(id).onclick = () => edit(id);
+  });
+  darklayer_elm.onclick = closePopup;
+
+  function closePopup() {
+    // document.getElementById("");
+    darklayer_elm.style.visibility = "hidden";
+    setVal_elm.style.visibility = "hidden";
+  }
+
+  function editPram(e) {
+    setVal_elm.innerHTML = `
+    
+      ${e === "str" ? "ATK" : e.toUpperCase()}:
+      <input type="number"
+      size="30" 
+      oninput="(e => {
+        const value = e.value;
+        document.querySelector('.${e}').
+          parentElement.nextElementSibling.innerHTML = value;
+        
+        })(this)"
+        />
+      `;
+    document.querySelector("#set_val>input").value = document.querySelector(
+      "." + e
+    ).parentElement.nextElementSibling.innerText;
+    showPopUp(e);
+  }
+
+  function showPopUp(e) {
+    // console.log(e);
+    // document.getElementById("");
+    darklayer_elm.style.visibility = "visible";
+    setVal_elm.style.visibility = "visible";
+  }
+
+  //https://code-kitchen.dev/html/input-file/
+  function ShowImageFromFile(file) {
+    // プレビュー画像を追加する要素
+    const preview = document.getElementById("chara_img");
+
+    // FileReaderオブジェクトを作成
+    const reader = new FileReader();
+
+    // ファイルが読み込まれたときに実行する
+    reader.onload = function (e) {
+      const imageUrl = e.target.result; // 画像のURLはevent.target.resultで呼び出せる
+      // const img = document.createElement("img"); // img要素を作成
+      // img.src = imageUrl; // 画像のURLをimg要素にセット
+      preview.src = imageUrl; // #previewの中に追加
+    };
+
+    // いざファイルを読み込む
+    reader.readAsDataURL(file);
+  }
+
+  const fileInput = document.getElementById("hidden_file_elm");
+  const handleFileSelect = () => {
+    const file = fileInput.files;
+    // for (let i = 0; i < files.length; i++) {
+    ShowImageFromFile(file[0]);
+    // }
+  };
+  fileInput.addEventListener("change", handleFileSelect);
+
+  function html2Img() {
+    html2canvas(document.querySelector(".insert-page")).then(function (canvas) {
+      canvas.toBlob(callback); // base64形式で描画内容を出力する
+    });
+    async function callback(x) {
+      console.log(x);
+      downloadFromUrlAutomatically(
+        await URL.createObjectURL(x),
+        "お知らせ画像.png"
+      );
+    }
+  }
+
+  function downloadFromUrlAutomatically(url, fileName) {
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("GET", url, true);
+    // xhr.responseType = "blob";
+    // xhr.onload = function () {
+    //   if (this.status == 200) {
+    // var urlUtil = window.URL || window.webkitURL;
+    // var imgUrl = urlUtil.createObjectURL(this.response);
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    //   }
+    // };
+    // xhr.send();
+  }
+</script>
+
+<style>
+  input[type="text"],
+  input[type="number"] {
+    margin: 1px;
+    padding: 20px;
+    border: 10;
+    line-height: 40%;
+    /* height: 30px ; */
+    font-size: 60%;
+  }
+
+  button {
+    width: 300px;
+    height: 100px;
+    font-size: 200%;
+  }
+
+  textarea {
+    margin: 1px;
+    border: 10;
+    line-height: 100%;
+    font-size: 80%;
+  }
+
+  #darklayer {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    width: 400vw;
+    height: 500vh;
+
+    background-color: #000000;
+    opacity: 0.5;
+    visibility: hidden;
+    z-index: 1;
+  }
+
+  .set_val {
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    width: 230vw;
+    background-color: #ffffff;
+    visibility: hidden;
+    padding: 40px;
+  }
+
+  #set_val {
+    z-index: 2;
+    font-size: 70px;
+  }
+</style>

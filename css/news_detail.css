@@ -1,0 +1,116 @@
+.container {
+  margin: 0 auto;
+}
+.newsDetail {
+  width: 980px;
+  margin: 0 auto;
+}
+.newsDetail .newsInner {
+  width: 944px;
+  margin: 0 auto;
+}
+.newsDetail .newsHeader {
+  margin: 10px 0px 20px 0px;
+}
+.newsDetail div.newsType {
+  width: 200px;
+  height: 36px;
+  margin-bottom: 2px;
+}
+.newsDetail div.newsType.information {
+  background: url(./news/news_type_information.png?20171109);
+}
+.newsDetail div.newsType.maintenance {
+  background: url(./news/news_type_maintenance.png?20171109);
+}
+.newsDetail div.newsType.update {
+  background: url(./news/news_type_update.png?20171109);
+}
+.newsDetail div.newsTitle {
+  width: 944px;
+  height: 78px;
+  background: url(./news/news_detail_title_bg.png?20171109);
+}
+.newsDetail .newsTitle dl {
+  width: 100%;
+  height: 72px;
+  display: table;
+}
+.newsDetail .newsTitle dl.new:before {
+  content: url(../news/news_new.png?20171109);
+  display: inline-block;
+  position: absolute;
+}
+.newsDetail .newsTitle dt {
+  width: 86px;
+  height: 72px;
+  display: table-cell;
+  padding: 0 10px 0 104px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 24px;
+  font-weight: bold;
+}
+.newsDetail .newsTitle dd {
+  width: 714px;
+  height: 72px;
+  display: table-cell;
+  padding-right: 30px;
+  vertical-align: middle;
+  min-height: 1.5em;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.newsDetail .newsText {
+  width: 944px;
+}
+.newsDetail .newsText h1,
+.newsDetail .newsText h2,
+.newsDetail .newsText h3,
+.newsDetail .newsText h4 {
+  height: 33px;
+  margin: 6px 0px;
+  padding: 0 0 0 30px;
+  color: #ff5dc0;
+  font-size: 24px;
+  font-weight: bold;
+  background: url(../news/news_head_bg.png?20171109) no-repeat top left;
+}
+.newsDetail .newsText h1 {
+  background: url(../news/news_head_bg.png?20171225) no-repeat top left;
+}
+.newsDetail .newsText h2 {
+  background: url(../news/news_head_bg2.png?20171225) no-repeat top left;
+}
+.newsDetail .newsText h3 {
+  background: url(../news/news_head_bg3.png?20171225) no-repeat top left;
+}
+.newsDetail .newsText h4 {
+  height: 40px;
+  padding: 2px 0 0 30px;
+  background: url(../news/news_head_bg4.png?20171225) no-repeat top left;
+}
+.newsDetail .newsText img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.newsDetail .newsText table,
+.newsDetail .newsText tr,
+.newsDetail .newsText td {
+  vertical-align: middle;
+}
+.newsDetail .newsText table.aligncenter {
+  margin: 0 auto;
+}
+#margin10 {
+  margin-bottom: 10px;
+}
+#margin20 {
+  margin-bottom: 20px;
+}
+#margin30 {
+  margin-bottom: 30px;
+}

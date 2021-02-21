@@ -1,0 +1,469 @@
+﻿html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+body {
+  background: #fff;
+  color: #764b42;
+  font-size: 24px;
+  line-height: 1.4;
+  font-family: “ＭＳ Ｐゴシック”, Osaka, “ヒラギノ角ゴ Pro W3”;
+}
+.helpCategory a .newsList a {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+.helpCategory a:link,
+.newsList a:link {
+  color: #764b42;
+  text-decoration: none;
+}
+.helpCategory a:visited .newsList a:visited {
+  color: #764b42;
+  text-decoration: none;
+}
+.helpCategory a:hover .newsList a:hover {
+  color: #764b42;
+  text-decoration: none;
+}
+.helpCategory a img .newsList a img {
+  border-width: 0px;
+  border-style: none;
+  border-color: #fff;
+  background: transparent;
+}
+.helpCategory:focus .newsList:focus {
+  outline: none;
+}
+.defaultStyle p {
+  display: block;
+}
+.defaultStyle strong {
+  font-weight: bold;
+}
+.defaultStyle em {
+  font-style: italic;
+}
+.defaultStyle blockquote {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 40px;
+  -webkit-margin-end: 40px;
+}
+.defaultStyle .aligncenter {
+  margin: 0 auto;
+}
+.defaultStyle .alignright {
+  float: right;
+}
+.defaultStyle .alignleft {
+  float: left;
+}
+.defaultStyle img[class*="wp-image-"],
+.defaultStyle img[class*="attachment-"] {
+  height: auto;
+  max-width: 100%;
+}
+.defaultStyle .clearfix {
+  overflow: hidden;
+  zoom: 1;
+}
+.defaultStyle .clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.defaultStyle table {
+  text-align: center;
+  vertical-align: middle;
+}
+.defaultStyle td {
+  text-align: center;
+  vertical-align: middle;
+}
+@font-face {
+  font-family: "FOT-GMaruGoPro-B";
+  src: local("FOT-学参丸ゴ Pro DB");
+}
+@font-face {
+  font-family: "FOT-GospelStd-EB";
+  src: local("GMaruGoPro-DB");
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #764b42;
+  font-size: 24px;
+  -webkit-text-size-adjust: 100%;
+  font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体",
+    "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
+  -webkit-touch-callout: none;
+}
+*.fontStand {
+  font-family: "FOT-GMaruGoPro-B", Lato, "Noto Sans JP", "游ゴシック Medium",
+    "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体",
+    "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
+}
+.charArea {
+  width: 944px;
+  float: left;
+}
+.charArea .charImg {
+  width: 360px;
+  padding: 60px 10px 10px 10px;
+  float: left;
+}
+.charImg img {
+  display: inline;
+  margin: 0;
+}
+.charArea .charInfo {
+  width: 540px;
+  padding: 10px;
+  float: left;
+}
+.charArea .charInfo img {
+  display: inline;
+  margin: 0;
+}
+.charArea .charType div {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+.charArea .charType .charRarity.rarity1 {
+  width: 40px;
+  background: url(../char/rarity.png?20171109) top left;
+}
+.charArea .charType .charRarity.rarity2 {
+  width: 80px;
+  background: url(../char/rarity.png?20171109) top left;
+}
+.charArea .charType .charRarity.rarity3 {
+  width: 120px;
+  background: url(../char/rarity.png?20171109) top left;
+}
+.charArea .charType .charRarity.rarity4 {
+  width: 160px;
+  background: url(../char/rarity.png?20171109) top left;
+}
+.charArea .charType .charRarity.rarity5 {
+  width: 200px;
+  background: url(../char/rarity.png?20171109) top left;
+}
+.charArea .charType .charElement.fire {
+  background: url(../char/char_element_icon.png?20171109) 0 0;
+}
+.charArea .charType .charElement.water {
+  background: url(../char/char_element_icon.png?20171109) -40px 0;
+}
+.charArea .charType .charElement.earth {
+  background: url(../char/char_element_icon.png?20171109) -80px 0;
+}
+.charArea .charType .charElement.wind {
+  background: url(../char/char_element_icon.png?20171109) -120px 0;
+}
+.charArea .charType .charElement.moon {
+  background: url(../char/char_element_icon.png?20171109) -160px 0;
+}
+.charArea .charType .charElement.sun {
+  background: url(../char/char_element_icon.png?20171109) -200px 0;
+}
+.charArea .charType .charClass {
+  width: 221px;
+}
+.charArea .charType .charClass.fighter {
+  background: url(../char/char_class_icon.png?20171205) 0 0;
+}
+.charArea .charType .charClass.magician {
+  background: url(../char/char_class_icon.png?20171205) 0 -40px;
+}
+.charArea .charType .charClass.priest {
+  background: url(../char/char_class_icon.png?20171205) 0 -80px;
+}
+.charArea .charType .charClass.knight {
+  background: url(../char/char_class_icon.png?20171205) 0 -120px;
+}
+.charArea .charType .charClass.alchemist {
+  background: url(../char/char_class_icon.png?20171205) 0 -160px;
+}
+.charName,
+.charParam,
+.charSkill,
+.charSkillSp,
+.charType {
+  width: 540px;
+  margin: 0 0 10px 0;
+}
+.charInfo .charType {
+  width: 540px;
+  margin: 0;
+  text-align: right;
+}
+.charInfo .charName {
+  height: 54px;
+  line-height: 54px;
+  font-weight: 700;
+  letter-spacing: -0.3em;
+  background: url(../char/char_name_line.png?20171109) no-repeat bottom
+    left;
+  margin-bottom: 28px;
+  padding-bottom: 8px;
+}
+.charInfo .charNameMain {
+  font-size: 54px;
+  margin-right: 2px;
+}
+.charInfo .charNameMain.over14WordsName {
+  font-size: 43px;
+}
+.charInfo .charNameMain.over13WordsName {
+  font-size: 45px;
+}
+.charInfo .charNameMain.over12WordsName {
+  font-size: 48px;
+}
+.charInfo .charNameMain.over11WordsName {
+  font-size: 52px;
+}
+.charInfo .charNameSub {
+  font-size: 40px;
+  vertical-align: 7px;
+}
+.charInfo .charParam .charParamType {
+  width: 84px;
+  height: 34px;
+}
+.charInfo .charParam .charParamType.hp {
+  background: url(../char/char_param_icon.png?20171109) 0 0;
+}
+.charInfo .charParam .charParamType.str {
+  background: url(../char/char_param_icon.png?20171109) 0 -34px;
+}
+.charInfo .charParam .charParamType.mat {
+  background: url(../char/char_param_icon.png?20171109) 0 -68px;
+}
+.charInfo .charParam .charParamType.def {
+  background: url(../char/char_param_icon.png?20171109) 0 -102px;
+}
+.charInfo .charParam .charParamType.mdf {
+  background: url(../char/char_param_icon.png?20171109) 0 -136px;
+}
+.charInfo .charParam .charParamType.spd {
+  background: url(../char/char_param_icon.png?20171109) 0 -170px;
+}
+.charInfo .charParam td {
+  padding: 0 8px 10px 0;
+  font-size: 24px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+.charInfo .charSkill {
+  margin-top: 20px;
+}
+.charInfo .charSkill div.charSkillIcon,
+.charInfo .charSkill dl {
+  display: inline-block;
+  vertical-align: middle;
+}
+.charInfo .charSkill div.charSkillIcon {
+  margin: 0 0 10px 0;
+}
+.charInfo .charSkill dl {
+  width: 450px;
+  vertical-align: top;
+  margin: 0;
+}
+.charInfo .charSkill dt {
+  font-size: 24px;
+  font-weight: 700;
+}
+.charInfo .charSkill dt:before {
+  content: "■";
+}
+.charInfo .charSkill dd {
+  padding-left: 4px;
+}
+.charInfo .charSkill .skillIcon {
+  width: 70px;
+  height: 70px;
+}
+.charInfo .charSkillSp {
+  margin-top: 10px;
+}
+.charInfo .charSkillSp p {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.15em;
+}
+.charInfo .charSkillSp p:after,
+.charInfo .charSkillSp p:before {
+  position: relative;
+  margin: 0 4px;
+  top: 4px;
+}
+.charInfo .charSkillSp p:before {
+  content: url(../char/char_skill_sp_title_b_icon.png?20171109);
+}
+.charInfo .charSkillSp p:after {
+  content: url(../char/char_skill_sp_title_a_icon.png?20171109);
+}
+.charInfo .charSeparate {
+  height: 2px;
+  background: url(../char/char_name_line.png?20171109) no-repeat bottom
+    left;
+}
+.balloon {
+  position: relative;
+}
+.balloon p {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-weight: 700;
+  width: max-content;
+  width: -webkit-max-content;
+}
+.clearBoth {
+  clear: both;
+}
