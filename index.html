@@ -484,7 +484,7 @@
 
         radio_onclick_atk = (e) => {
           const target = document.querySelector("#" + id + ">div>img");
-          target.src = target.src.replace(/r\/[^_]+_/, "r/" + e.value + "_");
+          target.src = target.src.replace(/char\/[^_]+_/, "char/" + e.value + "_");
         };
 
         document.querySelector("#set_val>input").value = document.querySelector(
